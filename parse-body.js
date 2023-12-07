@@ -1,25 +1,30 @@
 function firstStep(input) {
-  // Your code here 
+  return input.split('&')
 }
 
 function secondStep(input) {
-  // Your code here 
+  return input.map(item => item.split('='))
 }
 
 function thirdStep(input) {
-  // Your code here 
+  // for(let item of input){
+  //   for(let ele in item){
+  //     item[ele] = item[ele].replace('+', ' ')
+  //   }
+  // }
+  return input.map(([key, value]) => [key, value.replace(/\+/g, " ")])
 }
 
 function fourthStep(input) {
-  // Your code here 
+  // Your code here
 }
 
 function fifthStep(input) {
-  // Your code here 
+  // Your code here
 }
 
 function parseBody(str) {
-  // Your code here 
+  // Your code here
 }
 
 /******************************************************************************/

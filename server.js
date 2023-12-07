@@ -9,6 +9,15 @@ const http = require('http');
 
 server = http.createServer((req, res) => {
     console.log(req.method, req.url)
+
+    let reqBody = '';
+    req.on('data', data => {
+        reqBody += data;
+    })
+
+    req.on('end', () => {
+        console.log(reqBody)
+    })
 })
 
 const port = 5001;
