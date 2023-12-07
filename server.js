@@ -8,7 +8,7 @@ let server;
 const http = require('http');
 
 server = http.createServer((req, res) => {
-    console.log(req.method, req.url)
+    console.log(`${req.method} ${req.url}`)
 
     let reqBody = '';
     req.on('data', data => {
@@ -16,8 +16,12 @@ server = http.createServer((req, res) => {
     })
 
     req.on('end', () => {
-        console.log(reqBody)
+        if (reqBody){
+            req.body = parseBody(reqBody)
+        }
+        sendFormPage(req, res);
     })
+
 })
 
 const port = 5001;
